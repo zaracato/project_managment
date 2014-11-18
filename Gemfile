@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem "rails", "4.1.1"
 
 # Use PostgreSQL as the database for Active Record
-gem "pg", :require => "pg"
+gem "mysql2"
 
 # Compressor of JavaScript assets
 gem "uglifier", ">= 1.3.0"
@@ -21,6 +21,10 @@ gem "omniauth-facebook"
 gem "kaminari"
 gem "ransack"
 gem "dynamic_form"
+
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 
 group :test, :development do
   gem "rspec-rails"

@@ -1,0 +1,32 @@
+<%= form_for @project, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :deliver, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :deliver, :class => 'text_field datepicker' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cost, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :cost, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :user_id, :class => 'control-label' %>
+    <div class="controls">
+       <%= f.collection_select(:user_id, User.all, :id, :email,{prompt: 'Seleccione administrador'},{ :class => "select2"} )%>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                projects_path, :class => 'btn' %>
+  </div>
+<% end %>
