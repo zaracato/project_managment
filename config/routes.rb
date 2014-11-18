@@ -1,6 +1,15 @@
 BaseApp::Application.routes.draw do
 
-  resources :tasks
+  resources :tasks do
+    collection do
+      get :user_task
+
+    end
+    member do
+      get :user_edit
+      post :user_update
+    end
+  end
 
   resources :steps
 

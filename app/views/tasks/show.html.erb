@@ -5,9 +5,9 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:project_id) %>:</strong></dt>
-  <dd><%= @task.project_id %></dd>
+  <dd><%= @task.project.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @task.user_id %></dd>
+  <dd><%= @task.user.email %></dd>
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @task.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
@@ -17,8 +17,32 @@
   <dt><strong><%= model_class.human_attribute_name(:real_time) %>:</strong></dt>
   <dd><%= @task.real_time %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status_id) %>:</strong></dt>
-  <dd><%= @task.status_id %></dd>
+  <dd><%= @task.status.name %></dd>
 </dl>
+
+<div class="page-header">
+  <h3>Steps</h3>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @task.steps.each do |step| %>
+      <tr>
+        <td><%= step.id %></td>
+        <td><%= step.description %></td>
+        
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

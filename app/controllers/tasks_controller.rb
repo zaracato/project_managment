@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :user_edit, :user_update, :update, :destroy]
 
   # GET /tasks
   def index
@@ -45,6 +45,21 @@ class TasksController < ApplicationController
     redirect_to tasks_url, notice: 'Task was successfully destroyed.'
   end
 
+  def user_task
+    @tasks = Task.where(:user_id => current_user)
+  end
+
+  def user_edit
+  end
+
+  def user_update
+    if @task.update(task_params)
+      redirect_to @task, notice: 'Task was successfully updated.'
+    else
+      render :user_edit
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
@@ -53,6 +68,6 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:project_id, :user_id, :name, :description, :estimated_time, :real_time, :status_id)
+      params.require(:task).permit(:project_id, :user_id, :name, :description, :estimated_time, :real_time, :status_id, steps_attributes: [:description, :task_id])
     end
 end

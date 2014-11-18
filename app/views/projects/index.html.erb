@@ -22,7 +22,7 @@
         <td><%= project.deliver %></td>
         <td><%= number_to_currency(project.cost) %></td>
         <td><%= project.user.email %></td>
-        <td><%=l project.created_at %></td>
+        <td><%= project.created_at.strftime("%d/%m/%Y") %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_project_path(project), :class => 'btn btn-mini' %>

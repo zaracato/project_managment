@@ -41,7 +41,7 @@
     <% end %>
   </tbody>
 </table>
-<%= form_for @task, :url=>:add_task_project, :html => { :class => 'form-horizontal' } do |f| %>
+<%= nested_form_for @task, :url=>:add_task_project, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :project_id, :class => 'control-label' %>
     <div class="controls">
@@ -85,10 +85,29 @@
        <%= f.collection_select(:status_id, Status.all, :id, :name,{ :class => "select2"} )%>
     </div>
   </div>
+<%= f.fields_for :steps do |t| %>
+
+   <div class="field">
+    <%= t.hidden_field :task_id %>
+    <%= t.label :description %><br>
+    <%= t.text_field :description %>
+  </div>
+   <div class="control-group">
+            <div class="controls">
+  <%= t.link_to_remove(:class => "remove_task ", :href => "#") do %>
+  Remove Step
+  <% end %>
+</div>
+</div>
+<%end%>
+
+<p>
+  <%= f.link_to_add "Add a step", :steps , :class=>"btn btn-success"%></p>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 project_path(@project), :class => 'btn' %>
   </div>
+
 <% end %>

@@ -1,0 +1,49 @@
+<%- model_class = Task -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %> <%= @task.project.name %></h1>
+</div>
+<%= form_for @task,  :url=>:user_update_task, :method=>'post' ,:html => { :class => 'form-horizontal' } do |f| %>
+<%=f.hidden_field :id%>
+  <div class="control-group">
+    <%= f.label :user_id, :class => 'control-label' %>
+    <div class="controls">
+       <%= f.collection_select(:user_id, User.all, :id, :email,{prompt: 'Asignar'},{ :class => "select2"} )%>
+    </div>
+  </div>
+  <div class="control-group">
+  	<%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+    <%= @task.name%>
+ 	</div>
+  </div>
+  <div class="control-group">
+  	<%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+    <%=@task.description%>
+    </div>
+  </div>
+  <div class="control-group">
+  	<%= f.label :estimated_time, :class => 'control-label' %>
+    <div class="controls">
+    <%= @task.estimated_time %>
+   </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :real_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :real_time, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :status_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select(:status_id, Status.all, :id, :name,{ :class => "select2"} )%>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                tasks_path, :class => 'btn' %>
+  </div>
+<% end %>
