@@ -29,5 +29,5 @@ production:
   database: <%= ENV['PROJECTS_MYSQL_DB'] %>
   pool: 5
   username: <%= ENV['PROJECTS_MYSQL_USER'] %> 
-  password: <%= ENV['PROJECTS_MYSQL_PASS'] %> #9cc4b13ff7230917
+  password: <%= ENV['PROJECTS_MYSQL_PASS'] %>
   socket: <%= ENV['PROJECTS_MYSQL_SOCKET'] %>
