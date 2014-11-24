@@ -50,3 +50,11 @@ end
 group :production, :development do
   gem "thin"
 end
+
+
+gem 'capistrano',  '~> 3.1'
+gem 'capistrano-rvm'
+gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-bundler'
+
+
