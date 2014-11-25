@@ -10,7 +10,8 @@ describe "tasks/index" do
         :description => "MyText",
         :estimated_time => 3,
         :real_time => 4,
-        :status_id => 5
+        :status_id => 5,
+        :created_at => '12/10/2014'
       ),
       stub_model(Task,
         :project_id => 1,
@@ -19,7 +20,8 @@ describe "tasks/index" do
         :description => "MyText",
         :estimated_time => 3,
         :real_time => 4,
-        :status_id => 5
+        :status_id => 5,
+        :created_at => '12/10/2014'
       )
     ])
   end

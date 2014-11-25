@@ -5,11 +5,13 @@ describe "statuses/index" do
     assign(:statuses, [
       stub_model(Status,
         :name => "Name",
-        :color => "Color"
+        :color => "Color",
+        :created_at => '12/10/2014'
       ),
       stub_model(Status,
         :name => "Name",
-        :color => "Color"
+        :color => "Color",
+        :created_at => '12/10/2014'
       )
     ])
   end

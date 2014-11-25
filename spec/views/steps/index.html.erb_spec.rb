@@ -5,11 +5,13 @@ describe "steps/index" do
     assign(:steps, [
       stub_model(Step,
         :description => "Description",
-        :task_id => 1
+        :task_id => 1,
+        :created_at => '12/10/2014'
       ),
       stub_model(Step,
         :description => "Description",
-        :task_id => 1
+        :task_id => 1,
+        :created_at => '12/10/2014'
       )
     ])
   end
