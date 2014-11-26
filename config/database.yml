@@ -6,7 +6,6 @@
 development:
   adapter: mysql2
   encoding: utf8
-  reconnect: false
   database: proyectos 
   pool: 5
   username: root
@@ -25,9 +24,8 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  reconnect: false
   database: <%= ENV['PROJECTS_MYSQL_DB'] %>
   pool: 5
   username: <%= ENV['PROJECTS_MYSQL_USER'] %> 
   password: <%= ENV['PROJECTS_MYSQL_PASS'] %>
-  socket: <%= ENV['PROJECTS_MYSQL_SOCKET'] %>
+  socket:   <%= ENV['PROJECTS_MYSQL_SOCKET'] %>
