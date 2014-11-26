@@ -23,7 +23,7 @@ describe StatusesController do
   # This should return the minimal set of attributes required to create a valid
   # Status. As you add validations to Status, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "name" => "MyString" } }
+  let(:valid_attributes) { { "name" => "MyString", "created_at" =>Time.now } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

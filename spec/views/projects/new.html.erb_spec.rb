@@ -16,7 +16,7 @@ describe "projects/new" do
     assert_select "form[action=?][method=?]", projects_path, "post" do
       assert_select "input#project_name[name=?]", "project[name]"
       assert_select "input#project_cost[name=?]", "project[cost]"
-      assert_select "input#project_user_id[name=?]", "project[user_id]"
+      assert_select "select#project_user_id[name=?]", "project[user_id]"
     end
   end
 end
